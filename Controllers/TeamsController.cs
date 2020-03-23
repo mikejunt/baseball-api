@@ -23,7 +23,7 @@ namespace baseballapi.Controllers
 
         // GET: api/Teams
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TeamShort>>> GetTeams()
+        public async Task<ActionResult<IEnumerable<TeamShort>>> GetTeamList()
         {
             var query = await _context.Teams.Select(team => new TeamShort
             {
@@ -37,7 +37,7 @@ namespace baseballapi.Controllers
 
         // GET: api/Teams/5
         [HttpGet("{team_id}")]
-        public async Task<ActionResult<Teams>> GetTeams(string team_id)
+        public async Task<ActionResult<Teams>> GetTeam(string team_id)
         {
             var teams = await _context.Teams.FindAsync(team_id);
 
