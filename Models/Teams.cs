@@ -70,4 +70,9 @@ namespace baseballapi.Models
         public string SpringLeagueId { get; set; }
         public string VenueShort { get; set; }
     }
+
+    public partial class TeamShort {
+        public string TeamId { get; set; }
+        public string NameDisplayBrief { get; set; }
+    }
 }
