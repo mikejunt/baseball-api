@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace baseballapi
+namespace baseballapi.Models
 {
     public partial class baseballdbContext : DbContext
     {
@@ -31,8 +31,7 @@ namespace baseballapi
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("Host=ec2-35-168-54-239.compute-1.amazonaws.com;Database=db427sdpmj2765;Username=uovfcnctyilsug;Password=261fecc6bda5fb4aa962008e0cfdac3917af8ddfefbb1c93ffda1c1ddc44e64f;SSL Mode=Require;Trust Server Certificate=true");
+                optionsBuilder.UseNpgsql("");
             }
         }
 
