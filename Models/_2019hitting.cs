@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace baseballapi
+namespace baseballapi.Models
 {
-    public partial class _2017hitting
+    public partial class _2019hitting
     {
         public int Hr { get; set; }
         public int Gidp { get; set; }

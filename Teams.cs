@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace baseballapi
+namespace baseballapi.Models
 {
     public partial class Teams
     {
