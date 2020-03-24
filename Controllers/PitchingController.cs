@@ -12,6 +12,7 @@ namespace baseballapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class PitchingController : ControllerBase
     {
         private readonly baseballdbContext _context;
