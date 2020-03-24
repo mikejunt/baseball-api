@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using baseballapi.Models;
+using Microsoft.AspNetCore.Authorization;
 #nullable enable
 
 namespace baseballapi.Controllers
@@ -13,6 +14,7 @@ namespace baseballapi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Authorize]
     public class HittingController : ControllerBase
     {
         private readonly baseballdbContext _context;
