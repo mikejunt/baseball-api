@@ -24,7 +24,7 @@ namespace baseballapi.Controllers
 
         // GET: api/hitting?season=2019
         [HttpGet("")]
-        public async Task<ActionResult<IEnumerable<HittingSeason>>> GetSeasonHitting([FromQuery] int season,[FromQuery] string? team, [FromQuery] int pa = 1)
+        public async Task<ActionResult<IEnumerable<HittingSeason>>> GetSeasonHitting([FromQuery] int season,[FromQuery] string? team, [FromQuery] string? position, [FromQuery] int pa = 1)
         {
             var query = await _context.Masterhitting
             .Join(_context.Teams,
@@ -58,12 +58,14 @@ namespace baseballapi.Controllers
                     R = hitting.R,
                     Slg = hitting.Slg,
                     NameAbbrev = team.NameAbbrev,
-                    LeagueAbbrev = team.LeagueAbbrev
+                    LeagueAbbrev = team.LeagueAbbrev,
+                    PrimaryPosition = hitting.PrimaryPosition
             }))
             .Where(
             obj => obj.Season == season 
                 && obj.Tpa > pa
-                && (team == null || obj.TeamId == team))
+                && (team == null || obj.TeamId == team)
+                && (position == null || position == "ALLOF"?obj.PrimaryPosition.Contains("F"):obj.PrimaryPosition == position))
             .OrderByDescending(obj => obj.Woba)
             .ToListAsync();
             return query;

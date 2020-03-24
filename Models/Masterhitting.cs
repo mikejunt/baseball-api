@@ -75,5 +75,6 @@ namespace baseballapi.Models
         public string Name { get; set; }
         public string NameAbbrev { get; set; }
         public string LeagueAbbrev { get; set; }
+        public string PrimaryPosition { get; set; }
     }
 }
