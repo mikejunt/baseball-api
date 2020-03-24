@@ -83,66 +83,6 @@ namespace baseballapi.Controllers
             return query;
         }
 
-        // PUT: api/Pitching/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutMasterpitching(int id, Masterpitching masterpitching)
-        {
-            if (id != masterpitching.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(masterpitching).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MasterpitchingExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Pitching
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        public async Task<ActionResult<Masterpitching>> PostMasterpitching(Masterpitching masterpitching)
-        {
-            _context.Masterpitching.Add(masterpitching);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetMasterpitching", new { id = masterpitching.Id }, masterpitching);
-        }
-
-        // DELETE: api/Pitching/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Masterpitching>> DeleteMasterpitching(int id)
-        {
-            var masterpitching = await _context.Masterpitching.FindAsync(id);
-            if (masterpitching == null)
-            {
-                return NotFound();
-            }
-
-            _context.Masterpitching.Remove(masterpitching);
-            await _context.SaveChangesAsync();
-
-            return masterpitching;
-        }
-
         private bool MasterpitchingExists(int id)
         {
             return _context.Masterpitching.Any(e => e.Id == id);

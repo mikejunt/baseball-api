@@ -82,66 +82,6 @@ namespace baseballapi.Controllers
             return query;
         }
 
-        // PUT: api/Hitting/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutMasterhitting(int id, Masterhitting masterhitting)
-        {
-            if (id != masterhitting.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(masterhitting).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MasterhittingExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Hitting
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        public async Task<ActionResult<Masterhitting>> PostMasterhitting(Masterhitting masterhitting)
-        {
-            _context.Masterhitting.Add(masterhitting);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetMasterhitting", new { id = masterhitting.Id }, masterhitting);
-        }
-
-        // DELETE: api/Hitting/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Masterhitting>> DeleteMasterhitting(int id)
-        {
-            var masterhitting = await _context.Masterhitting.FindAsync(id);
-            if (masterhitting == null)
-            {
-                return NotFound();
-            }
-
-            _context.Masterhitting.Remove(masterhitting);
-            await _context.SaveChangesAsync();
-
-            return masterhitting;
-        }
-
         private bool MasterhittingExists(int id)
         {
             return _context.Masterhitting.Any(e => e.Id == id);
