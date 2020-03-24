@@ -23,9 +23,44 @@ namespace baseballapi.Controllers
 
         // GET: api/Pitching?season=2019
         [HttpGet("")]
-        public async Task<ActionResult<IEnumerable<Masterpitching>>> GetSeasonPitching([FromQuery] int season,[FromQuery] string? team, [FromQuery] int ip = 1)
+        public async Task<ActionResult<IEnumerable<PitchingSeason>>> GetSeasonPitching([FromQuery] int season,[FromQuery] string? team, [FromQuery] int ip = 1)
         {
             var query = await _context.Masterpitching
+            .Join(_context.Teams,
+            pitching => pitching.TeamId,
+            team => team.TeamId,
+            (pitching, team) => (new PitchingSeason {
+                    Player = pitching.Player,
+                    PlayerId = pitching.PlayerId,
+                    TeamId = pitching.TeamId,
+                    Name = team.Name,
+                    Season = pitching.Season,
+                    Gidp = pitching.Gidp,
+                    Np = pitching.Np,
+                    Sho = pitching.Sho,
+                    Bk = pitching.Bk,
+                    Sv = pitching.Sv,
+                    Bb = pitching.Bb,
+                    So = pitching.So,
+                    Wp = pitching.Wp,
+                    Hb = pitching.Hb,
+                    Rs = pitching.Rs,
+                    L = pitching.L,
+                    Cg = pitching.Cg,
+                    Gs = pitching.Gs,
+                    Ibb = pitching.Ibb,
+                    Hr = pitching.Hr,
+                    Era = pitching.Era,
+                    Fip = pitching.Fip,
+                    Hld = pitching.Hld,
+                    G = pitching.G,
+                    Ip = pitching.Ip,
+                    W = pitching.W,
+                    R = pitching.R,
+                    Er = pitching.Er,
+                    NameAbbrev = team.NameAbbrev,
+                    LeagueAbbrev = team.LeagueAbbrev
+            }))
             .Where(
             obj => obj.Season == season 
                 && obj.Ip > ip

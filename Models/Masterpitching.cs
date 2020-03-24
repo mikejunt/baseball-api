@@ -65,4 +65,38 @@ namespace baseballapi.Models
         public int Er { get; set; }
         public int Id { get; set; }
     }
+
+    public partial class PitchingSeason {
+        public string Player { get; set; }
+        public int Gidp { get; set; }
+        public int Np { get; set; }
+        public int Season { get; set; }
+        public int Sho { get; set; }
+        public int Bk { get; set; }
+        public int Sv { get; set; }
+        public int Bb { get; set; }
+        public int So { get; set; }
+        public int Wp { get; set; }
+        public int Hb { get; set; }
+        public int Rs { get; set; }
+        public int L { get; set; }
+        public int Cg { get; set; }
+        public string PlayerId { get; set; }
+        public int Gs { get; set; }
+        public int Ibb { get; set; }
+        public string TeamId { get; set; }
+        public int Hr { get; set; }
+        public decimal Era { get; set; }
+        public decimal? Fip { get; set; }
+        public int Hld { get; set; }
+        public int G { get; set; }
+        public decimal Ip { get; set; }
+        public int W { get; set; }
+        public int R { get; set; }
+        public int Er { get; set; }
+        public string NameAbbrev { get; set; }
+        public string LeagueAbbrev { get; set; }
+        public string Name { get; set; }
+
+    }
 }
