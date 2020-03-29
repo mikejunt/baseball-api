@@ -35,7 +35,7 @@ namespace baseballapi
             {
                 options.AddPolicy(MyAllowSpecificOrigins, builder =>
                 {
-                    builder.AllowAnyOrigin()
+                    builder.WithOrigins("https://msj-baseball-app.azurewebsites.net")
                            .AllowAnyHeader()
                            .AllowAnyMethod();
                 });
