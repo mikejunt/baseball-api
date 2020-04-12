@@ -35,9 +35,10 @@ namespace baseballapi
             {
                 options.AddPolicy(MyAllowSpecificOrigins, builder =>
                 {
-                    builder.WithOrigins("https://msj-baseball-app.azurewebsites.net")
-                           .AllowAnyHeader()
-                           .AllowAnyMethod();
+                    builder.AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .AllowAnyOrigin();
+                        //    .WithOrigins("https://msj-baseball-app.azurewebsites.net");
                 });
             });
             services.AddAuthentication(options =>
